@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameZone Shop</title>
+  <link rel="stylesheet" href="sign.css">
+</head>
+<body>
+  <header>
+    <div class="logo">GameZone</div></a>
+    <nav>
+      <ul>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#profile" id="profile-link">Profile</a></li>
+        <li><a href="#" id="sign-out-link">Sign Out</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section id="home" class="banner">
+    <h1>Welcome to the GameZone Homepage</h1>
+    <p>Your one-stop shop for all things gaming!</p>
+  </section>
+
+
+
+  <section id="profile" class="profile">
+    <h2>Customer Profile</h2>
+    <div class="profile-info" id="profile-info">
+      <!-- Profile details will be dynamically loaded here -->
+    </div>
+    <div class="auth-container">
+      <div class="form-container" id="sign-up-form">
+        <h2>Sign Up</h2>
+        <input type="email" id="sign-up-email" placeholder="Email" required>
+        <input type="password" id="sign-up-password" placeholder="Password" required>
+        <button id="sign-up-btn">Sign Up</button>
+      </div>
+    </div>
+  </section>
+
+  
+    <footer>
+    <p>&copy; 2024 GameZone. All rights reserved.</p>
+    <a href="index.html">Back To Home</a>   |  <a href="contact.html">Feel Free To Contact Us</a>
+  </footer>
+  
+  <script src="sign.js"></script>
+  <script>
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const game = button.getAttribute('data-game');
+        console.log(`Adding ${game} to cart`);
+        // Add game to cart logic here
+      });
+    });
+
+    document.getElementById('sign-up-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('sign-up-email').value;
+      const password = document.getElementById('sign-up-password').value;
+      console.log(`Signing up with email: ${email} and password: ${password}`);
+      // Sign up logic here
+    });
+
+    document.getElementById('sign-in-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('sign-in-email').value;
+      const password = document.getElementById('sign-in-password').value;
+      console.log(`Signing in with email: ${email} and password: ${password}`);
+      // Sign in logic here
+    });
+
+    document.getElementById('more-info-btn').addEventListener('click', () => {
+      const moreInfo = document.getElementById('more-info');
+      if (moreInfo.style.display === 'none') {
+        moreInfo.style.display = 'block';
+      } else {
+        moreInfo.style.display = 'none';
+      }
+    });
+
+    // Improved code
+    const products = document.querySelectorAll('.product');
+    products.forEach(product => {
+      product.addEventListener('mouseover', () => {
+        product.style.transform = 'scale(1.1)';
+      });
+      product.addEventListener('mouseout', () => {
+        product.style.transform = 'scale(1)';
+      });
+    });
+
+    const signUpForm = document.getElementById('sign-up-form');
+    const signInForm = document.getElementById('sign-in-form');
+    document.getElementById('sign-up-btn').addEventListener('click', () => {
+      signUpForm.style.display = 'block';
+      signInForm.style.display = 'none';
+    });
+    document.getElementById('sign-in-btn').addEventListener('click', () => {
+      signUpForm.style.display = 'none';
+      signInForm.style.display = 'block';
+    });
+  </script>
